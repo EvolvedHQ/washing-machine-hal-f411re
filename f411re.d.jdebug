@@ -16,6 +16,7 @@ void OnProjectLoad (void) {
   Project.SetTIFSpeed ("10 MHz");
   Project.AddSvdFile ("Cortex-M4.svd");
   Project.AddSvdFile ("stm32f411.svd");
+  Project.SetOSPlugin("freeRTOSPlugin.so");
   File.Open ("../.32.d/binary.elf");
 
 }
