@@ -156,8 +156,7 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
   
     /**SPI2 GPIO Configuration    
     PC3     ------> SPI2_MOSI
-    PB10     ------> SPI2_SCK
-    PB12     ------> SPI2_NSS 
+    PB10     ------> SPI2_SCK 
     */
     GPIO_InitStruct.Pin = SPI_MOSI_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
@@ -172,13 +171,6 @@ void HAL_SPI_MspInit(SPI_HandleTypeDef* hspi)
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
     HAL_GPIO_Init(SPI_CLK_GPIO_Port, &GPIO_InitStruct);
-
-    GPIO_InitStruct.Pin = SPI_NSS_Pin;
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-    GPIO_InitStruct.Pull = GPIO_PULLUP;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF5_SPI2;
-    HAL_GPIO_Init(SPI_NSS_GPIO_Port, &GPIO_InitStruct);
 
   /* USER CODE BEGIN SPI2_MspInit 1 */
 
@@ -200,12 +192,11 @@ void HAL_SPI_MspDeInit(SPI_HandleTypeDef* hspi)
   
     /**SPI2 GPIO Configuration    
     PC3     ------> SPI2_MOSI
-    PB10     ------> SPI2_SCK
-    PB12     ------> SPI2_NSS 
+    PB10     ------> SPI2_SCK 
     */
     HAL_GPIO_DeInit(SPI_MOSI_GPIO_Port, SPI_MOSI_Pin);
 
-    HAL_GPIO_DeInit(GPIOB, SPI_CLK_Pin|SPI_NSS_Pin);
+    HAL_GPIO_DeInit(SPI_CLK_GPIO_Port, SPI_CLK_Pin);
 
   /* USER CODE BEGIN SPI2_MspDeInit 1 */
 
