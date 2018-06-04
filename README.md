@@ -16,7 +16,7 @@ The full report on pin assignments and configuration are stored in
 this repository as a [text file](nucleo-f411re.txt) and a [PDF
 file](nucleo-f411re.pdf). Here are the edited highlights though:
 
-[pinout](pinout-image.png)
+[pinout](pinout_image.png)
 
 ## Integration with your project
 
