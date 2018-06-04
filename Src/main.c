@@ -132,8 +132,6 @@ int main(void)
   HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
   __HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_1, 1);
 
-  HAL_SPI_DeInit(&hspi2);  // Needed to frame send on F411
-
   HAL_GPIO_WritePin(CTL_DOOR_OPEN_GPIO_Port, CTL_DOOR_OPEN_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(CTL_SOFTEN_GPIO_Port, CTL_SOFTEN_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(CTL_POWDER_GPIO_Port, CTL_POWDER_Pin, GPIO_PIN_SET);
@@ -144,6 +142,8 @@ int main(void)
   HAL_GPIO_WritePin(PHASE_COND_GPIO_Port, PHASE_COND_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(PHASE_WASH_GPIO_Port, PHASE_WASH_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(PHASE_SPIN_GPIO_Port, PHASE_SPIN_Pin, GPIO_PIN_SET);
+
+  HAL_GPIO_WritePin(SPI_NSS_GPIO_Port, SPI_NSS_Pin, GPIO_PIN_SET);
 
   run_application(&hadc1, &hspi2, &htim2, &huart1);
 
