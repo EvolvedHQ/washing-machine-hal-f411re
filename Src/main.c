@@ -97,7 +97,6 @@ void led_command(uint8_t control, uint8_t data) {
   HAL_SPI_Transmit(&hspi2, &control, 1u, 100u);
   HAL_SPI_Transmit(&hspi2, &data, 1u, 100u);
   HAL_GPIO_WritePin(SPI_NSS_GPIO_Port, SPI_NSS_Pin, GPIO_PIN_SET);
-  HAL_Delay(1u);
 }
 
 /* USER CODE END 0 */
