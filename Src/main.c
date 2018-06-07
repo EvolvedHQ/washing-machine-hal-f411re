@@ -85,8 +85,8 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 /* USER CODE BEGIN PFP */
 /* Private function prototypes -----------------------------------------------*/
-extern void run_application(ADC_HandleTypeDef*, SPI_HandleTypeDef*,
-                            TIM_HandleTypeDef*, UART_HandleTypeDef*);
+extern void run(ADC_HandleTypeDef *, SPI_HandleTypeDef *,
+                TIM_HandleTypeDef *, UART_HandleTypeDef *);
 
 /* USER CODE END PFP */
 
@@ -165,7 +165,7 @@ int main(void)
 
   // Either define this in your code as your application's non-HAL entry
   // point, comment it out, or delete it.
-  run_application(&hadc1, &hspi2, &htim2, &huart1);
+  run(&hadc1, &hspi2, &htim2, &huart1);
 
   /* USER CODE END 2 */
 
