@@ -29,8 +29,8 @@ this framework.
 A hook is provided that calls a (declared, not defined) function:
 
 ```
-extern void run_application(ADC_HandleTypeDef*, SPI_HandleTypeDef*,
-                            TIM_HandleTypeDef*, UART_HandleTypeDef*);
+extern void run(ADC_HandleTypeDef*, SPI_HandleTypeDef*,
+                TIM_HandleTypeDef*, UART_HandleTypeDef*);
 ```
 
 Following initialisation in the tool-generated `main.c`, the
