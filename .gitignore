@@ -1,1 +1,7 @@
 *.jdebug.user
+
+# Ignore HAL-generated RTOS sources.
+# This is a little counterintuitive, so check the README.md for explains.
+Middlewares
+Inc/FreeRTOSConfig.h
+Src/freertos.c
