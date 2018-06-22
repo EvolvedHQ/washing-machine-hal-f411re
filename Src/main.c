@@ -92,13 +92,6 @@ extern void run(ADC_HandleTypeDef *, SPI_HandleTypeDef *,
 
 /* USER CODE BEGIN 0 */
 
-void led_command(uint8_t control, uint8_t data) {
-  HAL_GPIO_WritePin(SPI_NSS_GPIO_Port, SPI_NSS_Pin, GPIO_PIN_RESET);
-  HAL_SPI_Transmit(&hspi2, &control, 1u, 100u);
-  HAL_SPI_Transmit(&hspi2, &data, 1u, 100u);
-  HAL_GPIO_WritePin(SPI_NSS_GPIO_Port, SPI_NSS_Pin, GPIO_PIN_SET);
-}
-
 /* USER CODE END 0 */
 
 /**
@@ -151,17 +144,6 @@ int main(void)
   HAL_GPIO_WritePin(PHASE_SPIN_GPIO_Port, PHASE_SPIN_Pin, GPIO_PIN_SET);
 
   HAL_GPIO_WritePin(SPI_NSS_GPIO_Port, SPI_NSS_Pin, GPIO_PIN_SET);
-
-  led_command(0x0f, 0x00); // display off
-  led_command(0x0b, 0x03); // scan limit up to digit 3
-  led_command(0x09, 0xff); // BCD decode mode
-  led_command(0x0c, 0x01); // normal operation on
-  led_command(0x0a, 0x00); // low intensity display
-
-  led_command(0x01, 0x0a); // dash - 1
-  led_command(0x02, 0x0a); // dash - 2
-  led_command(0x03, 0x0a); // dash - 3
-  led_command(0x04, 0x0a); // dash - 4
 
   // Either define this in your code as your application's non-HAL entry
   // point, comment it out, or delete it.
